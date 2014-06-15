@@ -36,7 +36,7 @@
 %\author{Author Name}
 
 %For multiple authors:
-\author{ Eric Chown\inst{1}}
+\author{ Eric Chown\inst{1} and Michail G.~Lagoudakis\inst{2}}
 
 %If using runnningheads you can abbreviate the author name on even pages:
 %\authorrunning{abbreviated author name}
@@ -47,7 +47,11 @@
 %\institute{Institute Name \email{email address}}
 
 % If authors are from different institutes
-\institute{Bowdoin College \email{echown@bowdoin.edu}}
+\institute{
+Bowdoin College, Brunswick, Maine, U.S.A. \ \email{echown@bowdoin.edu}
+\and
+Technical University of Crete, Chania, Crete, Greece \ \email{lagoudakis@ece.tuc.gr}
+}
 
 %to remove your email just remove '\email{email address}'
 % you can also remove the thanks footnote by removing '\thanks{Thank you to...}'
@@ -495,9 +499,62 @@ increased emphasis on this portion of the competition teams should begin to thin
 how to engineer the best performance for their team and more about how to create flexible
 agents capable of thriving under a wider variety of circumstances and with changing
 teammates. In turn, this could lead the league to explore research areas that it would not have considered
-otherwise. We are just beginning to look at different models of robot-to-robot communication and
-it is certainly possible that that this exploration could also include human-to-robot communication
-as well.
+otherwise. 
+
+To provide a specific example of how such research exploration can be realized, we note that 
+any kind of communication between players in the SPL currently relies solely on the 
+availability of a reliable wireless network. This is, however, an artificial communication 
+channel, missing in real soccer games, whereby human players exchange and share information 
+using audiovisual signals they generate. 
+In addition, experience from the most recent RoboCup competitions indicates that even the 
+current state-of-the-art technology in wireless communication is insufficient to support 
+reliably the needs of SPL games. In the recent 2012 and 2013 SPL games many robots could not 
+even connect to the network, players could not receive game state from the game controller, 
+data packets were constantly missing, teammates could not communicate to coordinate, and 
+eventually most efforts for successful coordination among team players were gone. Since 
+communication is obviously necessary to advance teamwork, the key question that the league 
+may need to address in the future is the following: How could robots exchange and share 
+information, if there was no wireless or any other kind of network in the SPL field? Could 
+they use the physical world? Could they generate visual and/or auditory cues that could be 
+perceived by other robots and thus convey information in a more natural and human-like way? 
+
+As a concrete example towards audiovisual communication, consider the problem of generating 
+an intuitive visual signal for sharing information about the most important element in a 
+soccer game: the current position of the ball in the field\footnote{Part of the described 
+scenario was demonstrated in the SPL Open Challenge competition at RoboCup 2012 by SPL team 
+Kouretes.}. A robot having direct visual observation of the ball can assist its teammates by 
+generating a visual signal that reveals the current position of the ball. The most natural 
+and intuitive visual signal one could imagine is to fully extend one of the two arms, so that 
+it points directly to the ball. Another robot could visually perceive this signal through its 
+camera and use the vector defined by the first robot's arm to pinpoint the position of the 
+ball. Note that this kind of information sharing about the position of the ball does not 
+necessarily require any kind of localization of the two robots in the field or relative to 
+each other. The perceiving robot could simply ``follow'' visually the line indicated by the 
+pointing robot to locate the ball. Furthermore, such a visual signal could be used for 
+directing attention to any desired position or object in the field; a lead player could 
+direct a teammate towards a certain position in the field and a future robot referee could 
+easily point out the player that was penalized or the place where the ball went out of 
+bounds! Considering also the new addition of a robot coach on the sideline, images of real 
+human coaches would come to mind, if one watched the robot coach pointing to positions and 
+players, possibly ``shouting'' instructions at the same time. 
+
+The elimination of the (artificial) wireless communication network will open up opportunities 
+for researching several human-like behaviors, which may not be strictly restricted to soccer. 
+Teams will have to develop their own (or adopt existing) sign languages to convey information 
+between their players, possibly taking into account the fact that opponents are also 
+``watching'' and information may have to be encoded. Robot perception will not be limited 
+anymore on just correct object recognition (ball, goals, lines, players, etc.), but will also 
+have to succeed in correctly recognizing postures, signals, gestures, sounds, even complete 
+``oral'' sentences in a human or even in an (artificial) robot language. Needless to say that 
+all competing players will have to obey referee instructions, signaled with the sounds of a 
+whistle, possibly complimented with details provided ''orally''. Under the described setting, 
+not only will human spectators be naturally engaged into the game play strategies of each 
+team, but also the technology developed could be further exploited in numerous human-robot 
+and robot-robot interaction situations beyond robot soccer. 
+
+
+%We are just beginning to look at different models of robot-to-robot communication and
+%it is certainly possible that that this exploration could also include human-to-robot communication as well.
 
 \section{Conclusion}
 
