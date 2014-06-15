@@ -57,14 +57,14 @@
 \begin{abstract}
 The Standard Platform League is unique among RoboCup soccer leagues for
 its focus on software. Since all teams compete using the same hardware (a standard robotic platform),
-success is theoretically predicated completely on software quality, which should
-make quality judgments simpler and more objective. Growing out a league
-based on the Sony Aibo quadruped robots, the league has constantly evolved, as it moves ever
-closer to playing by human rules, and currently features the Aldebaran Nao humanoid robots. In the past the hallmark of the league has been
-a focus on individual skills, such as perception, localization, and motion, at the expense
-of more team-oriented skills, such as positioning and passing. The league has begun to address
-these skills with the creation of the Drop-in Challenge, where each competing team is comprised
-of robots taken from different research teams. This new focus should force teams to work
+success is theoretically completely completely on software quality, and the shared hardware
+makes quality judgments simpler and more objective. Growing out a league
+based on the Sony Aibo quadruped robots, the league has constantly evolved while moving ever
+closer to playing by human rules, and currently features the Aldebaran Nao humanoid robots. The hallmark of the league has been
+a focus on individual agents' skills, such as perception, localization, and motion, at the expense
+of more team-oriented skills, such as positioning and passing. The league has begun to address this deficiency
+with the creation of the Drop-in Challenge, where robots
+from multiple teams will work together. This new focus should force teams to work
 on multi-agent coordination in more abstract and general terms and promises
 to create fruitful new lines of research.
 \end{abstract}
@@ -76,7 +76,7 @@ RoboCup, SPL, Nao, multi-agent cooperation, machine learning
 \section{Introduction}
 
 The Standard Platform League (SPL) [\url{www.tzi.de/spl}] was born as the ``Sony Quadruped Football League'' in 1998 and was later renamed ``Four-Legged League'' (4LL).
-The original league adopted a standard robot platform, the Sony Aibo, as a way to make the focus
+The original league adopted a standard hardware platform, the Sony Aibo, as a way to make the focus
 of the competition \textit{software}, rather than hardware. The Aibo was a relatively
 inexpensive platform, which afforded teams the ability to do a significant amount of development
 and testing. 
@@ -86,12 +86,12 @@ The advantages of a standard platform are many. There are prominent teams
 in the league, which could not produce their own robots, but wish to use
 robots and to work on software development. Further, the
 standardization of the hardware puts teams on theoretically equal footing, making the
-competition ultimately about the quality of the developed software. Since all competing teams use the
+competition ultimately about the quality of the developed software. Since the teams all use the
 same robots, differences in the speed of motion, the accuracy of perception, the quality of localization, etc. can
 be directly attributed to software, rather than having to be disentangled from differences
 in hardware.
 This required focus on software
-has arguably pushed software development further in the SPL than in any other RoboCup humanoid league. This can be seen, for example, by the performance of Team DARwin which has won the KidSize
+has arguably pushed software development further in the SPL than in any other RoboCup humanoid league. This can be seen, for example, by the performance of Team DARWin which has won the KidSize
 class competition of the Humanoid League three years in a row using a code base developed for the SPL. That code base
 has since been widely cloned in the KidSize class. The focus on software can also be
 seen in the large number of research papers presented at the RoboCup Symposium that originate in the
@@ -114,7 +114,7 @@ SPL.
 The Aibo was
 an ideal platform for the original league, as the robots were cheap and relatively robust,
 and having four legs meant that their motion was relatively simple (compared
-to two-legged robots) to control. Nevertheless, the Aibo had a very poor CMOS camera, which was necessarily positioned very low to the ground making vision and localization extremely
+to two-legged robots) to control. Nevertheless, the Aibo had a very poor CMOS camera, which was necessarily positioned very low to the ground, making vision and localization extremely
 difficult. 
 
 To combat these problems the league used brightly-colored solid goals, in addition
@@ -179,13 +179,13 @@ the robot could actually move from side to side, while holding the ball, to
 get to a better shooting angle, to the effect that attackers could actually dodge
 goalies and score goals by walking into the goal with the ball. The combination of these two strategies meant
 that the best teams could easily score multiple goals during a game. What really
-made this development interesting, however, was that these behaviors could be acquired and optimized using machine
+made this interesting, however, was that these behaviors could be acquired and optimized using machine
 learning. 
 
 The last few years of the Four-Legged League were marked by a significant
 rise in machine learning~\cite{chalup-07}. Teams discovered that their walks could easily
 be optimized by any of a variety of machine learning techniques~\cite{kohl-04,chernova-04}.
-Further,
+Furthermore,
 individual behaviors, such as the grab~\cite{fidelman-07}, could be learned, as well as various
 aspects of color learning~\cite{quinlan-04}.
 
@@ -196,11 +196,11 @@ transitioning to a new robot platform. Following an open call for proposals pres
 the new standard platform was chosen to be the two-legged Aldebaran
 Nao robot. In 2008, SPL ran two competitions (Aibo and Nao) and in 2009 it transitioned
 completely to Nao. Moving to the biped Nao robot solved a number of
-problems that Aibos had, but also created significant new problems.
+problems that Aibos had, but the change also created significant new problems.
 
-The Naos had significantly better cameras than the Aibos and faster
+The Naos has significantly better cameras than the Aibos and faster
 processors. In addition, the league was able to move to goal posts
-that were true posts and eliminated the use of beacons, because the
+that were true posts. In addition beacons were no longer needed because the
 Nao's increased height enabled it to see more of the field than the
 Aibos could.
 %, most notably the field lines. 
@@ -215,7 +215,7 @@ or beacons) and landmarks (only one type of goal, no beacons,
 simpler uniforms), as well as better cameras and faster processors, has
 made more experimentation in vision possible. Teams, such as
 Nao Team HTWK and Nao Devils, have experimented with approaches
-to vision that do not use color tables at all and instead infer the colors
+to vision that do not use LUTs at all and instead infer the colors of the field
 of the objects by a combination of knowledge (e.g. most of the floor
 is green) and changes in luminance.  Other teams have begun to move towards 
 modern and general machine
@@ -232,14 +232,15 @@ On the other hand, the league did work hard to counterbalance the
 improvements the Naos brought to localization. The biggest change
 was moving to perfectly symmetric fields with regard to colors. No longer
 are there any unique landmarks that will tell a robot which direction
-it is facing. Contrast that to the early years, when there were two uniquely-colored
+it is facing. The current environment represents a significant 
+contrast that to the early years, when there were two uniquely-colored
 goals, as well as six uniquely-colored beacons. Although the problem has gotten
 much harder, the underlying algorithms in localization have not changed significantly,
 besides incorporating field lines as landmarks and the need to rely on correct initialization. 
 Probabilistic approaches based on Particle and Kalman Filters continue
 to dominate, but have been refined and extended with the addition of techniques, such
 as shared ball models and global (team) localization approaches, which in turn can help robots to disambiguate
-which side of the field that they are on.
+their location between the symmetric positions on opposite sides of the field.
 
 By far, however, the biggest area of change and research, since the
 switch to the Naos, is work on motion. Four-legged robots do not fall
@@ -249,7 +250,7 @@ finishers were marked by the fact that each had developed
 their own walk engine (B-Human~\cite{NaoWalking-WHSR-2009}, Northern Bites~\cite{strom-10}, and
 Nao Devils~\cite{czarnetzki}). Since then, there have been other teams who have developed
 very successful walks, e.g.~rUNSWift and Nao Team HTWK,
-but the league has begun to converge on a single walk engine, as numerous
+but the league has begun to converge on a single walk engine. Numerous
 teams now use some version of the B-Human engine. The reasons
 for this are pretty simple: a good motion system is still the dominant factor
 in robot soccer at the present. The best vision, localization, and behavior
@@ -261,17 +262,17 @@ five years ago, the transition has cost the league in other areas. Robots that
 are slow, not agile, and prone to falling down do not make reliable teammates 
 for coordinated activities, such as passing. Meanwhile, the robots are
 capable of kicking the ball more than the full-field length. This has led
-to a situation where, like in the Aibo days, there has been more emphasis
+to a situation similar to the Aibo days, where there has been more emphasis
 on individual skills, such as directed kicking, than on coordination and passing.
 However, recent developments in the league point to a change towards this
 direction. One reason for this has been the development of ``motion
 kicks", where the robots can kick the ball without first coming to a stop.
 Such kicks are not as powerful, but are much more useful against good teams, because they
 move the ball quickly and so it is less likely to be stolen
-by an opponent. Since these kicks are less powerful, robots using them are not
+by an opponent. Since motion kicks are less powerful, robots using them are not
 a threat to score from literally anywhere on the field and so moving the
 ball down the field in a series of kicks has become more important.
-As more teams use the B-Human (or a rough equivalent)
+As more teams use the B-Human, or similarly reliable,
 walk engine, walk speed will be cease to be the dominant differentiation factor
 between teams and team behaviors will become increasingly important. With
 precise kicking increasingly more prominent in the SPL, positioning of players and ball passing will
@@ -285,7 +286,7 @@ teams of robots drawn randomly from the population of competing
 teams. To emphasize the
 importance of this competition, it is required that all qualified teams compete and some teams
 are invited to compete, even if they did not qualify for the main soccer
-competition. From the perspective of the league there are two major challenges
+competition. From the perspective of the league, there are two major challenges
 in running such a competition. The biggest challenge is \textit{how to rank}
 the teams. Since one of the major goals of the competition is to increase interest in
 passing and teamwork, a blind, peer-review scoring system has been created with metrics
@@ -298,31 +299,31 @@ metrics will necessarily evolve over time to better meet the needs of the
 league.
 
 A second challenge is \textit{communication}. Drop-in games are not even possible,
-unless robots use a common, agreed-upon communication
+unless robots use a common, agreed upon communication
 protocol, so that they can share basic state information.  To facilitate these
 games, the league has moved to a standard message packet format that each team
-is required to use. The packet contains a number of standardized data fields
-for things, such as the robot's location and the location of the ball, and it
+is required to use in all games. The packet contains a number of standardized data fields
+for information, such as the robot's location and the location of the ball, and it
 also contains data fields that can be customized for any team's own needs, when
 playing normal games. The construction of the packet is not trivial, as
 the decisions have consequences for how well drop-in teams might perform.
 Early versions of the packet, for example, only contained basic information
-about which robot it was, where the robot was, and where the ball was. Such packets give no
+about the id of the robot sending the packet, where the robot was, and where the ball was. Such packets give no
 sense whatsoever of a robot's intentions. Is it going to the ball? Is it playing
 a particular position? And, so on. These things would need to be inferred by the
 robot's teammates. Ultimately, the league has chosen to include more information
-in the packet, including where the robot is walking to (or, thinks it is walking to), where it is shooting
+in the packet, including the robot's intended destination, where it is shooting
 to (or, is trying to shoot to), and a description of its intentions in terms of taking roles/positions, such
 as defender or keeper. Of course, the quality and even the truth of the
 information conveyed through these messages has to be considered by any robots receiving it.
 
-There are many challenges involved in making such drop-in games work, which
+There are many challenges involved in making such drop-in games work, and drop-in games
 could open rich areas of research for the league.
 For any given robot, for example, it is necessary to figure out which
 of its teammates it can trust. Some will be faster than others or have
 better localization systems. Some will communicate a ball location
 that isn't correct, etc. One change that this system may foster is
-towards a more human-like position system. A theoretical advantage that robots
+the development of a more human-like position system. A theoretical advantage that robots
 have over humans is that they can all run the same code and have
 the same hardware, meaning that players can swap positions at any
 time. A single player might move from defense to striker and back to
@@ -342,11 +343,11 @@ if she understands the basic principles of team soccer.
 This year the league is also experimenting with a \textit{coaching robot}. The
 idea comes from human soccer, where coaches provide general strategy
 for teams from the sideline. So, this year teams will be allowed to place
-a robot on the sideline, which can observe the game and communicate with the field players. The
+a coaching robot on the sideline, where it can observe the game and communicate with the field players. The
 danger of such an addition, of course, is that the coach, who will have an
-fairly good view of the field, could provide information that would solve
-problems, for example, where the ball is, what side of the field the ball or robots
-are on, etc. To combat this, the league is experimenting with limiting
+fairly good view of the field, could provide solve
+problems for the individual players, such as which side of the field
+that they are on. To combat this, the league is experimenting with limiting
 the number and the style of communiques that the coach can provide, 
 as well as putting a time delay on coach-player communications.
 The idea is that the coach should merely be communicating overarching
@@ -358,11 +359,12 @@ and the requirement to use the new standard message format for communicating.
 Meanwhile, solving the localization problems involved in a symmetric 
 and fairly populated 
 field remains an area of ongoing research. To this point no best
-practice has emerged, rather most teams seem to use a variety of
-heuristics. The most common has probably been to rely on teammates,
-but other solutions have ranged from having a team's goalie make
+practice has yet emerged, rather most teams seem to use a variety of
+heuristics. The most common has probably been to rely on teammates. For
+example a goalie can inform teammates when the ball is on its side.
+Other solutions have ranged from having a team's goalie make
 distinctive sounds to reveal the location of the home goal to using a variant of the SURF algorithm to try
-to build an on-the-fly map of the field's surround.
+to build an on-the-fly map of the field's surroundings.
 
 In terms of the mechanics of soccer, the league has once again progressed
 back to the point where the games were at
@@ -374,7 +376,10 @@ growth represents important progress towards the ideal of playing
 on human fields, it brings its own set of challenges. Some of these are
 purely practical---not many labs are large enough to support a full-sized
 field and, of course, more robots require commensurate amounts of additional
-money. There is a further complication as well. In principle, one of the
+money. There is a further complication as well having to do with how
+much teams can scrimmage. 
+
+In principle, one of the
 advantages SPL has over all other RoboCup soccer
 leagues is the common standard robot platform. Among other things, this
 means that it should be possible to run regular scrimmages between players of the same team and even
@@ -405,8 +410,8 @@ remaining limitations can now be attributed to the hardware. On the one hand, su
 are a roadblock to further development in terms of motion, but, on the other,
 it means that the standings of the league will not be so dependent on who
 has the best walk engine, which ought to force developments in other areas.
-The biggest area of need is almost certainly the further development of team play,
-such as team formations, role assignment, player positioning, and ball passing. In order for a team to develop a successful passing strategy
+The biggest area with the most potential for future developement is almost certainly team play,
+such as team formations, role assignment, player positioning, and ball passing. In order for a team to develop a successful passing strategy,
 there must be a combination of ability and need. On the ability side, robots must
 know where their teammates, as well as their opponents, are and be able to kick the ball with a fair amount
 of precision. Receiving robots must be agile enough to stop and control the
@@ -420,22 +425,21 @@ with a relatively small amount of error. While opponent localization is a much
 harder problem, many teams can now reliably identify opposing robots in their field
 of view and are actively working on incorporating them into a shared model.
 Kicking the ball accurately remains difficult,
-because of the shapes of the robot's feet, limitations on the movements
-of their joints, differences in field conditions, etc. Nevertheless, robots are able to kick
+because of the shapes of the robots' feet, limitations on the movements of their joints, and differences in field conditions. Nevertheless, robots are able to kick
 the ball with some accuracy over short distances. The biggest limitation seems to
-lie in the receiving robots. Even the best humans do not always make perfect passes,
-but what they do quite well is to quickly adjust to imperfect passes. Humans can quickly
-shift their feet, their motion path, or whatever else is necessary in order to receive and
+lay in the receiving robots. Even the best humans do not always make perfect passes,
+but human receivers do quickly adjust to imperfect passes. Humans can quickly
+shift their feet, their motion path, or whatever is necessary in order to receive and
 control a pass. Robots in the SPL are simply not capable of doing much
 of that yet. Simple passing, not  nearly as fluid as it
 is for humans, still remains to be seen in the SPL.
 
-The main reason there is so little passing seems to be that there is not enough payoff
+In terms of need, a major reason there is so little passing seems to be that there is not enough payoff
 to try it very often. A pass should provide the passing team with a clear advantage over
 not passing. In RoboCup, a player near the ball has three basic options: shoot, dribble,
 or pass; right now, passing is the third choice for most teams. This mainly has
-to do with the fact that shooting is such a high-reward, low-risk, option.
-If a player is aligned on the goal, there is little reason not to shoot. Players
+to do with the fact that shooting is such a high-reward, low-risk option.
+If a player is aligned toward the goal, there is little reason not to shoot. Players
 can easily kick the ball hard enough to score from anywhere on the field. Even if the
 goalie stops such a shot, the ball has gone to a place where the shooting team is at an
 offensive advantage, particularly since there is no offside rule and many teams
@@ -448,24 +452,25 @@ Some addition to the rules may be required to discourage continuous dribbling an
 %necessary when playing the best teams. The natural evolution of these kicks is as
 %part of a passing system.
 
-The long-term goal
+One long-term goal
 of the SPL has been to be the first humanoid robot league to play 11 versus 11 players' games.
 With more players on the field necessarily comes an increased premium on teamwork.
 In the interim the league will continue to push towards games that are more realistic.
 Changes expected to occur in the near term include changing the goal colors to white
 and letting teams wear custom jerseys. Both will present new challenges for league vision
-systems, both are necessary to the evolution of the league, but neither represent the
+systems, and both are necessary to the evolution of the league, but neither represents the
 kind of challenge that will significantly advance the quality of play in the league. 
 %At some level
 %the league is still dominated by the need to solve basic problems and the best teams
 %are simply engineered better than other teams. 
+
 The very fact that RoboCup is a competition
 encourages teams to stick to ``best practices" at the expense of breaking ground on
 radically new approaches. In recent years this has been reinforced, as the best teams
 have once again begun to regularly release their code and numerous other teams have
 used that code as the basis for their systems. On the one hand, this is desirable,
 as it pushes the overall quality of play higher, allows new teams to get a working
-system up and running, and forces the best teams to keep improving, but on the other
+system up and running, and forces the best teams to keep improving. On the other
 hand, too many teams make little or no effort to truly push the boundaries of robot
 soccer. 
 
@@ -483,13 +488,13 @@ they could be more useful and could even include remote participation. Ultimatel
 robots are so useful as a tool of science, precisely because they act in the real world. The
 more data that we can get from such actions the better.
 
-Ultimately, the Standard Platform League 
+The Standard Platform League 
 needs to work to ensure that it leverages the qualities that make it unique among RoboCup leagues as much
 as possible. The Drop-in challenge is a strong, positive step in that direction. With the
 increased emphasis on this portion of the competition teams should begin to think beyond
 how to engineer the best performance for their team and more about how to create flexible
 agents capable of thriving under a wider variety of circumstances and with changing
-teammates. In turn, this could lead the league to explore research areas that it would not have
+teammates. In turn, this could lead the league to explore research areas that it would not have considered
 otherwise. We are just beginning to look at different models of robot-to-robot communication and
 it is certainly possible that that this exploration could also include human-to-robot communication
 as well.
@@ -497,10 +502,12 @@ as well.
 \section{Conclusion}
 
 The SPL remains one of the most vibrant leagues in RoboCup. It has always been a leader in
-advancing humanoid robot soccer in increasingly realistic directions, including the field dimensions, the
+advancing humanoid robot soccer in increasingly realistic directions in terms of the field dimensions, the
 number of robots on the field, and the setup of the field. In turn, the emphasis on software has
 led the league to develop
-and refine techniques in motion, vision, localization, communication, behavior, and coordination, but also to experiment with applying machine learning and optimization techniques to a range of tasks.
+and refine techniques in motion, vision, localization, communication, behavior, and coordination, but also to experiment with applying machine learning and optimization techniques to a range of tasks. In the present the league is
+continuing to lead as it experiments with the drop-in challenge and with coaching robots. In the future
+it will continue to push the boundaries of what robots can do on a soccer field.
 
 
 %the following is the current LNCS BibTex with alphabetic sorting
