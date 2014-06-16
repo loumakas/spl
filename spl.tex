@@ -61,7 +61,7 @@ Technical University of Crete, Chania, Crete, Greece \ \email{lagoudakis@ece.tuc
 \begin{abstract}
 The Standard Platform League is unique among RoboCup soccer leagues for
 its focus on software. Since all teams compete using the same hardware (a standard robotic platform),
-success is theoretically completely completely on software quality, and the shared hardware
+success is predicated on software quality, and the shared hardware
 makes quality judgments simpler and more objective. Growing out a league
 based on the Sony Aibo quadruped robots, the league has constantly evolved while moving ever
 closer to playing by human rules, and currently features the Aldebaran Nao humanoid robots. The hallmark of the league has been
@@ -117,8 +117,8 @@ SPL.
 
 The Aibo was
 an ideal platform for the original league, as the robots were cheap and relatively robust,
-and having four legs meant that their motion was relatively simple (compared
-to two-legged robots) to control. Nevertheless, the Aibo had a very poor CMOS camera, which was necessarily positioned very low to the ground, making vision and localization extremely
+and having four legs meant that their motion was relatively simple, as compared
+to two-legged robots, to control. Nevertheless, the Aibo had a very poor CMOS camera, which was necessarily positioned very low to the ground, making vision and localization extremely
 difficult. 
 
 To combat these problems the league used brightly-colored solid goals, in addition
@@ -136,7 +136,7 @@ and orange colors were also a problem, because the balls used were close in colo
 uniforms that the robots wore. And, since the robots were so low to the ground, it
 was easy to confuse their uniforms for balls.
 
-The standard approach to vision was to use a color look-up table.
+The standard approach to vision was to use a color look-up table (LUT).
 Teams would take images from the competition venue and use them to
 ``paint'' a color table. The process was slow and tedious and prone to error.
 Once a color table was built, most teams used a version of run-length encoding
@@ -381,26 +381,26 @@ on human fields, it brings its own set of challenges. Some of these are
 purely practical---not many labs are large enough to support a full-sized
 field and, of course, more robots require commensurate amounts of additional
 money. There is a further complication as well having to do with how
-much teams can scrimmage. 
+much teams can run practice games. 
 
 In principle, one of the
 advantages SPL has over all other RoboCup soccer
 leagues is the common standard robot platform. Among other things, this
-means that it should be possible to run regular scrimmages between players of the same team and even
-to scrimmage other teams, if their code (or their executables) are available. This actually happened a fair amount of times in the last few
+means that it should be possible to run regular practice games between players of the same team and even
+to play practice games against other teams, if their code (or their executables) are available. This actually happened a fair amount of times in the last few
 Aibo years. For example, the Northern Bites were able to compete remotely
 in the RoboCup German Open competition in 2008. In turn, the German Team provided the
 Northern Bites with executable versions of their code so that the Northern
-Bites could scrimmage the German Team in their lab. The advantages of
+Bites could play practice games against the German Team in their lab. The advantages of
 such arrangements are myriad, but boil down to the fact that the way to
-get better at anything is to practice. In RoboCup, scrimmaging provides
-essential data and opportunities for debugging, considering the variation offered by scrimmaging
+get better at anything is to practice. In RoboCup, practice games provide
+essential data and opportunities for debugging, considering the variation offered by playing
 against other teams. In some
-ways there are more opportunities for these kinds of scrimmages now than
+ways there are more opportunities for these kinds of practice games now than
 ever, as several teams release their code on a yearly
 basis. However, as the league rules, including field dimensions and number of players, change, the amount of work necessary to get
 one of these releases running, obeying the updated rules, quickly becomes prohibitive.
-Further, even with the current settings, running a full scrimmage requires a total of 10 healthy robots, a number
+Further, even with the current settings, running a full practice game requires a total of 10 healthy robots, a number
 that very few teams can afford.
 
 \section{The Future}
@@ -485,7 +485,7 @@ even compete. In the past the league has discussed facing the issue by forcing t
 merger of teams into larger regional teams. The current move towards playing drop-in
 games, however, seems to be a more pragmatic solution and one that has payoffs
 in other dimensions. With drop-in games established, each research team no longer necessarily needs to have more
-than a few robots. The downside is that practice and scrimmaging are practically eliminated. In the long term, it may raise 
+than a few robots. The downside is that practice games are practically eliminated. In the long term, it may raise 
 the need for more local competitions. Currently these local competitions
 are mainly seen as a tune-up for the main RoboCup event, but perhaps with more incentives in place
 they could be more useful and could even include remote participation. Ultimately,
