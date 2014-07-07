@@ -1,0 +1,55 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{bruce-00}
+Bruce, J., Balch, T., Veloso, M.: Fast and inexpensive color image segmentation
+  for interactive robots. In: Proceedings of ICRA-2000 (2000)
+
+\bibitem{chalup-07}
+Chalup, S., Much, C., Quinlan, M.: Machine learning with {Aibo} robots in the
+  {Four-Legged League}. IEEE Transactions on Systems, Man, and Cybernetics,
+  Part C: Applications and Reviews  37(3),  297--310 (2007)
+
+\bibitem{chernova-04}
+Chernova, S., Veloso, M.: An evolutionary approach to gait learning for
+  four-legged robots. In: Proceedings of the IEEE/RSJ International Conference
+  on Intelligent Robots and Systems (IROS). vol.~3, pp. 2562--2567 (2004)
+
+\bibitem{czarnetzki}
+Czarnetzki, S., Kerner, S., Urbann, O.: Observer-based dynamic walking control
+  for biped robots. Robots and Autonomous Systems  57(8),  839--845 (2009)
+
+\bibitem{fidelman-07}
+Fidelman, P., Stone, P.: The chin pinch: A case study in skill learning on a
+  legged robot. In: Lakemeyer, G., Sklar, E., Sorenti, D., Takahashi, T. (eds.)
+  RoboCup 2006: Robot Soccer World Cup X. pp. 59--71. Springer (2007)
+
+\bibitem{NaoWalking-WHSR-2009}
+Graf, C., H{\"a}rtl, A., R{\"o}fer, T., Laue, T.: A robust closed-loop gait for
+  the {Standard Platform League} humanoid. In: Zhou, C., Pagello, E.,
+  Menegatti, E., Behnke, S., R{\"o}fer, T. (eds.) Proceedings of the Fourth
+  Workshop on Humanoid Soccer Robots in conjunction with the 2009 IEEE-RAS
+  International Conference on Humanoid Robots. pp. 30--37. Paris, France (2009)
+
+\bibitem{kohl-04}
+Kohl, N., Stone, P.: Policy gradient reinforcement learning for fast
+  quadrupedal locomotion. In: Proceedings of the {IEEE} International
+  Conference on Robotics and Automation (ICRA). vol.~3, pp. 2619--2624 (2004)
+
+\bibitem{quinlan-04}
+Quinlan, M., Chalup, S., Middleton, R.: Application of {SVM}s in colour
+  classification and collision detection with {Aibo} robots. In: Advances in
+  Neural Information Processing Systems (NIPS) (2004)
+
+\bibitem{botsport}
+{Snapshot from BotSport.TV}: \url{https://www.youtube.com/user/BotSportTV}
+  (2013)
+
+\bibitem{strom-10}
+Strom, J., Slavov, G., Chown, E.: Omni-directional walking using {ZMP} and
+  preview control for the {NAO} humanoid robot. In: Baltes, J., Lagoudakis,
+  M.G., Naruse, T., Ghidary, S.S. (eds.) RoboCup 2009: Robot Soccer World Cup
+  XIII. pp. 378--389. Springer (2010)
+
+\end{thebibliography}

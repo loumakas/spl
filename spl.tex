@@ -63,8 +63,8 @@ The Standard Platform League is unique among RoboCup soccer leagues for
 its focus on software. Since all teams compete using the same hardware (a standard robotic platform),
 success is predicated on software quality, and the shared hardware
 makes quality judgments simpler and more objective. Growing out a league
-based on the Sony Aibo quadruped robots, the league has constantly evolved while moving ever
-closer to playing by human rules, and currently features the Aldebaran Nao humanoid robots. The hallmark of the league has been
+based on the Sony AIBO quadruped robots, the league has constantly evolved while moving ever
+closer to playing by human rules, and currently features the Aldebaran NAO humanoid robots. The hallmark of the league has been
 a focus on individual agents' skills, such as perception, localization, and motion, at the expense
 of more team-oriented skills, such as positioning and passing. The league has begun to address this deficiency
 with the creation of the Drop-in Challenge, where robots
@@ -74,17 +74,19 @@ to create fruitful new lines of research.
 \end{abstract}
 
 \begin{keywords}
-RoboCup, SPL, Nao, multi-agent cooperation, machine learning
+RoboCup, SPL, NAO, multi-agent cooperation, machine learning
 \end{keywords}
 
 \section{Introduction}
 
-The Standard Platform League (SPL) [\url{www.tzi.de/spl}] was born as the ``Sony Quadruped Football League'' in 1998 and was later renamed ``Four-Legged League'' (4LL).
-The original league adopted a standard hardware platform, the Sony Aibo, as a way to make the focus
-of the competition \textit{software}, rather than hardware. The Aibo was a relatively
+The Standard Platform League (SPL) [\url{www.tzi.de/spl}] was referred to as the ``Sony Quadruped Football League''
+in the original rules published by the league
+[\url{www.tzi.de/spl/pub/Website/History/Rules1998.pdf}] in 1998 and was later renamed ``Four-Legged League'' (4LL).
+The original league adopted a standard hardware platform, the Sony AIBO, as a way to make the focus
+of the competition \textit{software}, rather than hardware. The AIBO was a relatively
 inexpensive platform, which afforded teams the ability to do a significant amount of development
 and testing. 
-Aibo was progressively replaced by the Nao between 2007 and 2009 and the league coined its current name. The latest edition of the league featured teams of five robots each, wearing red and blue jerseys, playing soccer autonomously on a $6\times9$ meters field with yellow goals on both sides, using an orange-street hockey ball (Figure~\ref{spl2013}).
+AIBO was progressively replaced by the NAO between 2007 and 2009 and the league coined its current name. The latest edition of the league featured teams of five robots each, wearing red and blue jerseys, playing soccer autonomously on a $6\times9$ meters field with yellow goals on both sides, using an orange-street hockey ball (Figure~\ref{spl2013}).
 
 The advantages of a standard platform are many. There are prominent teams
 in the league, which could not produce their own robots, but wish to use
@@ -113,24 +115,25 @@ SPL.
 
 \section{History}
 
-\subsection{The Aibo Years}
+\subsection{The AIBO Years}
 
-The Aibo was
-an ideal platform for the original league, as the robots were cheap and relatively robust,
+The AIBO was
+an ideal platform for the original league, as the robots were relatively robust,
 and having four legs meant that their motion was relatively simple, as compared
-to two-legged robots, to control. Nevertheless, the Aibo had a very poor CMOS camera, which was necessarily positioned very low to the ground, making vision and localization extremely
-difficult. 
+to two-legged robots, to control. Nevertheless, getting a small robot to play
+soccer presented a number of difficult problems in the early stages, especially
+with regard to vision and localization.
 
-To combat these problems the league used brightly-colored solid goals, in addition
+To help mitigate these problems the league used brightly-colored solid goals, in addition
 to a number of multi-colored beacons that ringed the field. While these unique
 landmarks helped to make localization much simpler, ironically they made
 vision something of a larger problem, because they increased the number of landmarks
 to be recognized, as well as the number of colors that a vision system needed to
-discern. In particular, Aibos had trouble with the colors blue/skyblue, used in
+discern. In particular, AIBOs had trouble with the colors blue/skyblue, used in
 goals and beacons, and red/orange, used in balls and uniforms. Blue/skyblue colors
 were a problem, because they were close to so many colors that appear
-around a typical AIbo game (e.g.~blue jeans worn by spectators), but also because
-the Aibo camera had a peculiar feature, called ``chromatic distortion'', that
+around a typical AIBO game (e.g.~blue jeans worn by spectators), but also because
+the AIBO camera had a peculiar feature, called ``chromatic distortion'', that
 shifted parts of the image towards the blue end of the color spectrum. Red
 and orange colors were also a problem, because the balls used were close in color to the
 uniforms that the robots wore. And, since the robots were so low to the ground, it
@@ -139,14 +142,16 @@ was easy to confuse their uniforms for balls.
 The standard approach to vision was to use a color look-up table (LUT).
 Teams would take images from the competition venue and use them to
 ``paint'' a color table. The process was slow and tedious and prone to error.
+Because of this attempts were made to improve the process with machine
+learning~\cite{bruce-00,quinlan-04}
 Once a color table was built, most teams used a version of run-length encoding
 to extract blobs of the various colors that made up the landmarks around the field.
 Blobs were then examined and various sanity checks were run to see, if,
 for example, an orange blob was truly a ball and not part of a uniform.
 Notably, there was very little use of modern and general machine vision techniques,
-such as Hough and other transforms, mainly because of the slow processor
-available onboard the Aibo. In addition, dedicated, bright, invariant, uniform lighting of the field was a necessity 
-in those years for successful visual object recognition. 
+such as Hough and other transforms, mainly because of a desire to run at the
+highest frame rate possible. In addition, dedicated, bright, invariant, uniform
+lighting of the field was a necessity in those years for successful visual object recognition. 
 %The circumstances fostered a situation where it made more sense
 %to engineer domain and hardware specific solutions, rather than more general
 %purpose ones.
@@ -157,7 +162,7 @@ To update the state (position and orientation) of each robot, some kind of Parti
 Localization) or Kalman Filter (Gaussian Localization) or a combination of both was used. The advantage of Kalman Filters 
 relied again on computational efficiency, as it was difficult to use enough
 particles to make Particle Filters work adequately on the limited 
-Aibo processor. 
+AIBO processor. 
 Similar techniques were also used for tracking the (moving) ball on the field. 
 Over the years, the localization problem became harder, by altering 
 the number and the quality of landmarks; the initially six multi-colored beacons 
@@ -171,7 +176,7 @@ in properly recognizing them, given that the robots themselves were also white-c
 In terms of behaviors, the Four-Legged League was marked by a succession
 of improvements in individual skills and the development of basic behavioral
 frameworks, but very little obvious teamwork was evident. On an individual
-level, the Aibos went from walking on their ``paws'', like normal dogs, to walking
+level, the AIBOs went from walking on their ``paws'', like normal dogs, to walking
 on what amounts to the forearms of their front legs. This made them much
 more stable and ultimately much faster and more agile.  The dogs would
 kick the ball by putting their front legs up at a 90 degree angle and then forcefully bringing
@@ -193,23 +198,24 @@ Furthermore,
 individual behaviors, such as the grab~\cite{fidelman-07}, could be learned, as well as various
 aspects of color learning~\cite{quinlan-04}.
 
-\subsection{The Nao Years}
+\subsection{The NAO Years}
 
-After Sony ceased production on the Aibos in 2006, the league began
+After Sony ceased production on the AIBOs in 2006, the league began
 transitioning to a new robot platform. Following an open call for proposals presented at RoboCup 2007, 
 the new standard platform was chosen to be the two-legged Aldebaran
-Nao robot. In 2008, SPL ran two competitions (Aibo and Nao) and in 2009 it transitioned
-completely to Nao. Moving to the biped Nao robot solved a number of
-problems that Aibos had, but the change also created significant new problems.
+NAO robot. In 2008, SPL ran two competitions (AIBO and NAO) and in 2009 it transitioned
+completely to NAO. Moving to the biped NAO robot solved a number of
+problems that AIBOs had, but the change also created significant new problems.
 
-The Naos has significantly better cameras than the Aibos and faster
-processors. In addition, the league was able to move to goal posts
+The NAOs were able to benefit from ten years of improvements in robot hardware.
+For example, the NAOs has significantly better cameras than the AIBOs and faster
+processors. Among other things, this enabled the league to move to goal posts
 that were true posts. In addition beacons were no longer needed because the
-Nao's increased height enabled it to see more of the field than the
-Aibos could.
+NAO's increased height enabled it to see more of the field than the
+AIBOs could.
 %, most notably the field lines. 
 As a result, vision became simpler and ultimately localization improved, because
-the Nao's increased field of view made exploiting field lines possible. Eventually,
+the NAO's increased field of view made exploiting field lines possible. Eventually,
 these developments allowed to color both sets of goals posts uniformly yellow. While
 the new symmetric field created interesting new localization challenges, it also made vision
 even simpler by eliminating the blue color from the landmarks.
@@ -218,22 +224,22 @@ The reduction in colors (e.g. no more pinks on beacons, blues on goals
 or beacons) and landmarks (only one type of goal, no beacons,
 simpler uniforms), as well as better cameras and faster processors, has
 made more experimentation in vision possible. Teams, such as
-Nao Team HTWK and Nao Devils, have experimented with approaches
+NAO Team HTWK and NAO Devils, have experimented with approaches
 to vision that do not use LUTs at all and instead infer the colors of the field
 of the objects by a combination of knowledge (e.g. most of the floor
 is green) and changes in luminance.  Other teams have begun to move towards 
 modern and general machine
 vision approaches, such as using Hough transforms to identify lines. Such approaches
-would not have been possible on the Aibo.
+would not have been possible on the AIBO.
 What has not happened though is any sort of counterbalance to make vision
 a hard problem again. Ideas in this direction can easily be found
 in real soccer; the balls, for example, vary in color and patterns from game
 to game, as do team uniforms. Meanwhile, even though field lighting is not as carefully
-controlled as it was during the Aibo years, Nao games are still played indoors with
+controlled as it was during the AIBO years, NAO games are still played indoors with
 fairly invariant ceiling, but no dedicated, lighting.
 
 On the other hand, the league did work hard to counterbalance the
-improvements the Naos brought to localization. The biggest change
+improvements the NAOs brought to localization. The biggest change
 was moving to perfectly symmetric fields with regard to colors. No longer
 are there any unique landmarks that will tell a robot which direction
 it is facing. The current environment represents a significant 
@@ -247,9 +253,9 @@ as shared ball models and global (team) localization approaches, which in turn c
 their location between the symmetric positions on opposite sides of the field.
 
 By far, however, the biggest area of change and research, since the
-switch to the Naos, is work on motion. Four-legged robots do not fall
+switch to the NAOs, is work on motion. Four-legged robots do not fall
 over and are relatively agile. Two-legged robots can fall and thus far
-are still far from being agile. In RoboCup 2009, the 2nd year of the Nao competition, the top three
+are still far from being agile. In RoboCup 2009, the 2nd year of the NAO competition, the top three
 finishers were marked by the fact that each had developed
 their own walk engine (B-Human~\cite{NaoWalking-WHSR-2009}, Northern Bites~\cite{strom-10}, and
 Nao Devils~\cite{czarnetzki}). Since then, there have been other teams who have developed
@@ -266,7 +272,7 @@ five years ago, the transition has cost the league in other areas. Robots that
 are slow, not agile, and prone to falling down do not make reliable teammates 
 for coordinated activities, such as passing. Meanwhile, the robots are
 capable of kicking the ball more than the full-field length. This has led
-to a situation similar to the Aibo days, where there has been more emphasis
+to a situation similar to the AIBO days, where there has been more emphasis
 on individual skills, such as directed kicking, than on coordination and passing.
 However, recent developments in the league point to a change towards this
 direction. One reason for this has been the development of ``motion
@@ -372,7 +378,7 @@ to build an on-the-fly map of the field's surroundings.
 
 In terms of the mechanics of soccer, the league has once again progressed
 back to the point where the games were at
-the end of the Aibo era; there are five players on each side and the field has grown to be $9\times 6$ meters. Typically,
+the end of the AIBO era; there are five players on each side and the field has grown to be $9\times 6$ meters. Typically,
 the league sticks with a given field size and number of
 players for approximately two to three years, so it is likely that the league
 will look to use larger fields with more players in the next year. While this
@@ -388,7 +394,7 @@ advantages SPL has over all other RoboCup soccer
 leagues is the common standard robot platform. Among other things, this
 means that it should be possible to run regular practice games between players of the same team and even
 to play practice games against other teams, if their code (or their executables) are available. This actually happened a fair amount of times in the last few
-Aibo years. For example, the Northern Bites were able to compete remotely
+AIBO years. For example, the Northern Bites were able to compete remotely
 in the RoboCup German Open competition in 2008. In turn, the German Team provided the
 Northern Bites with executable versions of their code so that the Northern
 Bites could play practice games against the German Team in their lab. The advantages of
@@ -409,7 +415,7 @@ The move to two-legged robots was a case of the league needing to take a number
 of steps backwards in terms of quality of play in order to make some very large
 steps forward possible. The difficulty of walking stably and quickly was clearly the dominant
 focus of the SPL for several years after the switch. At this point, the
-low-hanging fruit of what the Naos can do has more or less been reached and many of the
+low-hanging fruit of what the NAOs can do has more or less been reached and many of the
 remaining limitations can now be attributed to the hardware. On the one hand, such limitations
 are a roadblock to further development in terms of motion, but, on the other,
 it means that the standings of the league will not be so dependent on who
