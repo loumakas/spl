@@ -79,14 +79,15 @@ RoboCup, SPL, NAO, multi-agent cooperation, machine learning
 
 \section{Introduction}
 
-The Standard Platform League (SPL) [\url{www.tzi.de/spl}] was referred to as the ``Sony Quadruped Football League''
-in the original rules published by the league
-[\url{www.tzi.de/spl/pub/Website/History/Rules1998.pdf}] in 1998 and was later renamed ``Four-Legged League'' (4LL).
+The Standard Platform League (SPL) [\url{www.tzi.de/spl}] was referred to as the ``Sony Quadruped Robot Football League''
+in the original rules published %by the league
+%[\url{www.tzi.de/spl/pub/Website/History/Rules1998.pdf}] 
+in 1998~\cite{rules1998} and was later renamed ``Four-Legged League'' (4LL).
 The original league adopted a standard hardware platform, the Sony AIBO, as a way to make the focus
-of the competition \textit{software}, rather than hardware. The AIBO was a relatively
-inexpensive platform, which afforded teams the ability to do a significant amount of development
+of the competition \textit{software}, rather than hardware. The AIBO was a 
+robust robot platform, which afforded teams the ability to do a significant amount of development
 and testing. 
-AIBO was progressively replaced by the NAO between 2007 and 2009 and the league coined its current name. The latest edition of the league featured teams of five robots each, wearing red and blue jerseys, playing soccer autonomously on a $6\times9$ meters field with yellow goals on both sides, using an orange-street hockey ball (Figure~\ref{spl2013}).
+AIBO was progressively replaced by the NAO robot between 2007 and 2009 and the league coined its current name. The latest edition of the league featured teams of five robots each, wearing red and blue jerseys, playing soccer autonomously on a $6\times9$ meters field with yellow goals on both sides, using an orange street-hockey ball (Figure~\ref{spl2013}).
 
 The advantages of a standard platform are many. There are prominent teams
 in the league, which could not produce their own robots, but wish to use
@@ -110,7 +111,7 @@ SPL.
 %\vspace{-0.1cm}
   \caption{SPL final game at RoboCup 2013 in Eidenhoven, The Netherlands.~\cite{botsport}}
   \label{spl2013}
-%\vspace{-0.5cm}
+\vspace{-0.3cm}
 \end{figure} 
 
 \section{History}
@@ -142,7 +143,7 @@ was easy to confuse their uniforms for balls.
 The standard approach to vision was to use a color look-up table (LUT).
 Teams would take images from the competition venue and use them to
 ``paint'' a color table. The process was slow and tedious and prone to error.
-Because of this attempts were made to improve the process with machine
+Because of this, attempts were made to improve the process with machine
 learning~\cite{bruce-00,quinlan-04}
 Once a color table was built, most teams used a version of run-length encoding
 to extract blobs of the various colors that made up the landmarks around the field.
@@ -258,8 +259,8 @@ over and are relatively agile. Two-legged robots can fall and thus far
 are still far from being agile. In RoboCup 2009, the 2nd year of the NAO competition, the top three
 finishers were marked by the fact that each had developed
 their own walk engine (B-Human~\cite{NaoWalking-WHSR-2009}, Northern Bites~\cite{strom-10}, and
-Nao Devils~\cite{czarnetzki}). Since then, there have been other teams who have developed
-very successful walks, e.g.~rUNSWift and Nao Team HTWK,
+NAO Devils~\cite{czarnetzki}). Since then, there have been other teams who have developed
+very successful walks, e.g.~rUNSWift and NAO Team HTWK,
 but the league has begun to converge on a single walk engine. Numerous
 teams now use some version of the B-Human engine. The reasons
 for this are pretty simple: a good motion system is still the dominant factor
@@ -442,7 +443,7 @@ but human receivers do quickly adjust to imperfect passes. Humans can quickly
 shift their feet, their motion path, or whatever is necessary in order to receive and
 control a pass. Robots in the SPL are simply not capable of doing much
 of that yet. Simple passing, not  nearly as fluid as it
-is for humans, still remains to be seen in the SPL.
+is for humans, still remains to be seen.% in the SPL.
 
 In terms of need, a major reason there is so little passing seems to be that there is not enough payoff
 to try it very often. A pass should provide the passing team with a clear advantage over
@@ -481,7 +482,8 @@ have once again begun to regularly release their code and numerous other teams h
 used that code as the basis for their systems. On the one hand, this is desirable,
 as it pushes the overall quality of play higher, allows new teams to get a working
 system up and running, and forces the best teams to keep improving. On the other
-hand, too many teams make little or no effort to truly push the boundaries of robot
+hand, %too 
+many teams make little or no effort to truly push the boundaries of robot
 soccer. 
 
 Going forward the league requires balancing several things. The field
@@ -526,9 +528,10 @@ perceived by other robots and thus convey information in a more natural and huma
 
 As a concrete example towards audiovisual communication, consider the problem of generating 
 an intuitive visual signal for sharing information about the most important element in a 
-soccer game: the current position of the ball in the field\footnote{Part of the described 
-scenario was demonstrated in the SPL Open Challenge competition at RoboCup 2012 by SPL team 
-Kouretes.}. A robot having direct visual observation of the ball can assist its teammates by 
+soccer game: the current position of the ball in the field
+%\footnote{Part of the described 
+%scenario was demonstrated in the SPL Open Challenge competition at RoboCup 2012 by SPL team Kouretes.}. 
+A robot having direct visual observation of the ball can assist its teammates by 
 generating a visual signal that reveals the current position of the ball. The most natural 
 and intuitive visual signal one could imagine is to fully extend one of the two arms, so that 
 it points directly to the ball. Another robot could visually perceive this signal through its 
@@ -569,7 +572,7 @@ and robot-robot interaction situations beyond robot soccer.
 %\vspace{-0.1cm}
   \caption{SPL participants at RoboCup 2013 (picture credit: Brad Hall).}
   \label{spl2013people}
-%\vspace{-0.5cm}
+\vspace{-0.3cm}
 \end{figure} 
 
 \section{Conclusion}
@@ -579,7 +582,7 @@ advancing humanoid robot soccer in increasingly realistic directions in terms of
 number of robots on the field, and the setup of the field. In turn, the emphasis on software has
 led the league to develop
 and refine techniques in motion, vision, localization, communication, behavior, and coordination, but also to experiment with applying machine learning and optimization techniques to a range of tasks. In the present the league is
-continuing to lead as it experiments with the drop-in challenge and with coaching robots. In the future
+continuing to lead as it experiments with the drop-in challenge and with coaching robots. In the future,
 it will continue to push the boundaries of what robots can do on a soccer field.
 
 
